@@ -120,4 +120,55 @@ Finally, the function returns a pointer to the `new_node`, indicating that the i
              change left with rieght
 ```
 
+# 3️⃣
+
+
+```c
+void binary_tree_delete(binary_tree_t *tree)
+```
+
+This is the function declaration. It's a `void` function, which means it doesn't return any value. It takes a pointer to a `binary_tree_t` node named `tree` as input. This pointer should point to the root of the binary tree that you want to delete.
+
+```c
+{
+    if (tree == NULL)
+        return;
+```
+
+This block of code checks if the input `tree` pointer is `NULL`. If it's `NULL`, it means there's nothing to delete, so the function simply returns, effectively doing nothing.
+
+```c
+    binary_tree_delete(tree->left);
+    binary_tree_delete(tree->right);
+```
+
+These two lines are recursive calls to the `binary_tree_delete` function. They are responsible for deleting the left and right subtrees of the current node. By making these recursive calls, the function ensures that all nodes in the tree are traversed and deleted.
+
+```c
+    free(tree);
+```
+
+After the recursive calls, the function reaches this line, which frees the memory 
+
+# 4️⃣
+
+```c
+int binary_tree_is_leaf(const binary_tree_t *node)
+```
+
+This is the function declaration. It returns an integer (1 or 0) and takes a constant pointer to a `binary_tree_t` node named `node` as input. This pointer refers to the node that you want to check if it's a leaf or not.
+
+```c
+{
+    if (node == NULL)
+        return (0);
+```
+
+This block of code checks if the input `node` pointer is NULL. If it's NULL, it means there's no node to check, so the function returns 0 to indicate that a NULL node is not a leaf.
+
+```c
+    return (node->left == NULL && node->right == NULL);
+```
+
+This line is the return statement of the function. It checks if both the `left` and `right` pointers of the given `node` are NULL. If both pointers are NULL, it means that the node doesn't have any children, and thus the node is a leaf. In this case, the function returns 1, indicating that the node is a leaf. If at least one of the pointers is not NULL, the node has children and is not a leaf, so the function returns 0.
 
