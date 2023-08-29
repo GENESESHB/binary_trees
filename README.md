@@ -170,5 +170,5 @@ This block of code checks if the input `node` pointer is NULL. If it's NULL, it 
     return (node->left == NULL && node->right == NULL);
 ```
 
-This line is the return statement of the function. It checks if both the `left` and `right` pointers of the given `node` are NULL. If both pointers are NULL, it means that the node doesn't have any children, and thus the node is a leaf. In this case, the function returns 1, indicating that the node is a leaf. If at least one of the pointers is not NULL, the node has children and is not a leaf, so the function returns 0.
+This line is the return statement of the function. It checks if both the `left` and `right` pointers of the given `node` are NULL. If both pointers are NULL, it means that the node doesn't have any children, and thus the node is a leaf. In this case, the function returns 1, indicating that the node is a leaf. If at least one of the pointers is not NULL, the node has children and is not a leaf, so the function returns 0
 
