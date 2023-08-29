@@ -172,3 +172,32 @@ This block of code checks if the input `node` pointer is NULL. If it's NULL, it 
 
 This line is the return statement of the function. It checks if both the `left` and `right` pointers of the given `node` are NULL. If both pointers are NULL, it means that the node doesn't have any children, and thus the node is a leaf. In this case, the function returns 1, indicating that the node is a leaf. If at least one of the pointers is not NULL, the node has children and is not a leaf, so the function returns 0
 
+# 5️⃣
+
+
+```c
+#include "binary_trees.h"
+```
+
+This line includes the necessary header file `binary_trees.h`, which likely contains the structure definitions and function prototypes related to binary trees.
+
+```c
+int binary_tree_is_root(const binary_tree_t *node)
+```
+
+This is the function declaration. It returns an integer (1 or 0) and takes a constant pointer to a `binary_tree_t` node named `node` as input. This pointer points to the node you want to check if it's a root or not.
+
+```c
+{
+    if (node == NULL)
+        return (0);
+```
+
+This block of code checks if the input `node` pointer is NULL. If it's NULL, it means there's no node to check, so the function returns 0 to indicate that a NULL node is not considered a root.
+
+```c
+    return (node->parent == NULL);
+```
+
+This line is the return statement of the function. It checks whether the `parent` pointer of the given `node` is NULL. If it's NULL, it means that the node doesn't have a parent and is therefore a root. In this case, the function returns 1 to indicate that the node is a root. If the `parent` pointer is not NULL, the node has a parent and is not a root, so the function returns 0.
+
