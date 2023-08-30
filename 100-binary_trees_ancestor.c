@@ -13,7 +13,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 	binary_tree_t *fir = (binary_tree_t *)first;
 	binary_tree_t *sec = (binary_tree_t *)second;
 
-	if (!first || !second)
+	if (!first || !second || !first->parent || !second->parent)
 		return (NULL);
 
 	while (fir && sec)
@@ -26,7 +26,8 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 			return (sec);
 		if (fir->parent->parent)
 			fir = fir->parent;
-		sec = sec->parent;
+		if (sec->parent->parent)
+			sec = sec->parent;
 	}
 	return (NULL);
 }
