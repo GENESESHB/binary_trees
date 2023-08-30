@@ -26,8 +26,7 @@ binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 			return (sec);
 		if (fir->parent->parent)
 			fir = fir->parent;
-		if (sec->parent->parent)
-			sec = sec->parent;
+		sec = sec->parent;
 	}
 	return (NULL);
 }
