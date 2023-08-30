@@ -201,3 +201,33 @@ This block of code checks if the input `node` pointer is NULL. If it's NULL, it 
 
 This line is the return statement of the function. It checks whether the `parent` pointer of the given `node` is NULL. If it's NULL, it means that the node doesn't have a parent and is therefore a root. In this case, the function returns 1 to indicate that the node is a root. If the `parent` pointer is not NULL, the node has a parent and is not a root, so the function returns 0.
 
+# 6️⃣
+``Write a function that goes through a binary tree using pre-order traversal``
+
+```c
+func(tree->n);  // Call the provided function on the current node's value
+    binary_tree_preorder(tree->left, func);   // Recurse on the left subtree
+    binary_tree_preorder(tree->right, func);  // Recurse on the right subtree
+```
+
+# 7️⃣
+``Write a function that goes through a binary tree using in-order traversal``
+
+```c
+    binary_tree_inorder(tree->left, func);   // Recurse on the left subtree
+    func(tree->n);  // Call the provided function on the current node's value
+    binary_tree_inorder(tree->right, func);  // Recurse on the right subtree
+```
+
+# 8️⃣
+``Write a function that goes through a binary tree using post-order traversal``
+```c
+    binary_tree_postorder(tree->left, func);   // Recurse on the left subtree
+    binary_tree_postorder(tree->right, func);  // Recurse on the right subtree
+    func(tree->n);  // Call the provided function on the current node's value
+```
+
+# 9️⃣
+`` Write a function that measures the height of a binary tree``
+
+# 🔟
