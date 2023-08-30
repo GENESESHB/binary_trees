@@ -10,23 +10,24 @@
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		const binary_tree_t *second)
 {
+
+	binary_tree_t *temp = (binary_tree_t *)second;
 	binary_tree_t *fir = (binary_tree_t *)first;
 	binary_tree_t *sec = (binary_tree_t *)second;
 
 	if (!first || !second || !first->parent || !second->parent)
 		return (NULL);
 
-	while (fir && sec)
+	while (fir)
 	{
-		if (fir->parent == sec->parent)
-			return (fir->parent);
-		if (fir == sec->parent)
-			return (fir);
-		if (sec == fir->parent)
-			return (sec);
-		if (fir->parent->parent)
-			fir = fir->parent;
-		sec = sec->parent;
+		while (sec)
+		{
+			if (fir == sec)
+				return (fir);
+			sec = sec->parent;
+		}
+		sec = temp;
+		fir = fir->parent;
 	}
 	return (NULL);
 }
