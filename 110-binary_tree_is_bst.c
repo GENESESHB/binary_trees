@@ -1,36 +1,40 @@
 #include "binary_trees.h"
-
 /**
- * is_bst_util -function use recrisieve for virified if tree is BST
- * @tree: pointer for root tree
- * @prev: pointer for next node
+ *is_valid_bst - a function that checks if a binary tree is
+ *a valid Binary Search Tree (BST).
+ *@node: a pointer to the current node being evaluated.
+ *@prev_node: a pointer to a pointer to the previously visited node.
+ *Return: 1 if the tree is a valid BST otherwise 0.
  *
- * return: 1 if tree BST atherwise 0
  */
-
-int is_bst_util(const binary_tree_t *tree, const binary_tree_t *prev)
+int is_valid_bst(const binary_tree_t *node, const binary_tree_t **prev_node)
 {
-	if (tree == NULL)
+	if (node == NULL)
 		return (1);
 
-	if (!is_bst_util(tree->left, prev))
+	if (!is_valid_bst(node->left, prev_node))
 		return (0);
 
-	if (prev != NULL && tree->n <= prev->n)
+	if ((*prev_node) && node->n <= (*prev_node)->n)
 		return (0);
 
-	prev = tree;
+	*prev_node = node;
 
-	return(is_bst_util(tree->right, prev);
+	return (is_valid_bst(node->right, prev_node));
 }
-
 /**
- * binary_tree_is_bst - Vérifie si un arbre binaire est un ARB valide.
- * @tree: Pointeur vers le nœud racine de l'arbre à vérifier.
+ *binary_tree_is_bst - a function that checks if a binary tree
+ *is a valid Binary Search Tree.
+ *@tree: a pointer to the root of the binary tree.
+ *Return: 1 in succes otherwise 0.
  *
- * Retourne : 1 si l'arbre est un ARB valide, 0 sinon.
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-    return is_bst_util(tree, NULL);
+	const binary_tree_t *prev_node = NULL;
+
+	if (!tree)
+		return (0);
+
+	return (is_valid_bst(tree, &prev_node));
 }
