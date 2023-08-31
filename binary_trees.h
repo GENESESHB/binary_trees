@@ -20,6 +20,7 @@ typedef struct binary_tree_s
 	struct binary_tree_s *right;
 } binary_tree_t;
 
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 int binary_tree_is_complete(const binary_tree_t *tree);
 void apply_func_to_nodes_at_level(const binary_tree_t *tree, int level, void (*func)(int));
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
